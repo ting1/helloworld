@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Shortcut</title>
+</head>
+<body>
+  <button onclick="createShortcut()">创建桌面快捷键</button>
+
+  <script>
+    function createShortcut() {
+      if (navigator.userAgent.indexOf("Chrome") !== -1) {
+        var link = document.createElement("link");
+        link.rel = "shortcut icon";
+        link.href = "https://www.eyougame.com"; // 要创建快捷方式的网址
+        link.type = "image/x-icon";
+        document.getElementsByTagName("head")[0].appendChild(link);
+
+        alert("请点击浏览器菜单中的“添加到主屏幕”选项，将本网页添加到主屏幕上。");
+      } else {
+        alert("抱歉，当前不是谷歌浏览器，无法创建桌面快捷键。");
+      }
+    }
+  </script>
+</body>
+</html>
